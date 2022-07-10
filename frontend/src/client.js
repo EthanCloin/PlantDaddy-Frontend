@@ -9,7 +9,7 @@ class FastAPIClient {
       ...overrides,
     };
 
-    this.login = this.login.bind(this);
+    // this.login = this.login.bind(this);
     this.apiClient = this.getApiClient(this.config);
   }
 
@@ -25,7 +25,7 @@ class FastAPIClient {
   }
 
   getNursury() {
-    return this.apiClient.get(`/nursury/`);
+    return this.apiClient.get(`/nursery/`);
   }
   createPlant(name, species, health) {
     const plantData = {
