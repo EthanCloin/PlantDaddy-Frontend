@@ -57,9 +57,7 @@ async def create_new_plant(plant: PlantCreate):
 @app.get("/nursery/")
 async def get_all_plants() -> list[Plant]:
     with Session(engine) as session:
-        stmt = select(Plant)
-        result = session.exec(stmt)
-        plants = result.all()
+        plants = session.exec(select(Plant)).all()
         return plants
     # return """
     # <html>
