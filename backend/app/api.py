@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from .models import Plant, PlantCreate, PlantRead
-from sqlmodel import create_engine, SQLModel, Session
+from sqlmodel import create_engine, SQLModel, Session, select
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
@@ -54,15 +54,20 @@ async def create_new_plant(plant: PlantCreate):
         return db_plant
 
 
-@app.get("/nursery/", response_class=HTMLResponse)
-async def view_nursery():
-    return """
-    <html>
-        <head>
-            <title>Your Nursery</title>
-        </head>
-        <body>
-            <h1>Your plants live here!</h1>
-        </body>
-    </html>
-    """
+@app.get("/nursery/")
+async def get_all_plants() -> list[Plant]:
+    with Session(engine) as session:
+        stmt = select(Plant)
+        result = session.exec(stmt)
+        plants = result.all()
+        return plants
+    # return """
+    # <html>
+    #     <head>
+    #         <title>Your Nursery</title>
+    #     </head>
+    #     <body>
+    #         <h1>Your plants live here!</h1>
+    #     </body>
+    # </html>
+    # """
