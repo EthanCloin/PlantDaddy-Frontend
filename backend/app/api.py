@@ -1,9 +1,14 @@
+import os
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from .models import Plant, PlantCreate, PlantRead
 from sqlmodel import create_engine, SQLModel, Session
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
+load_dotenv()
+
+SQLITE_FILE = os.environ.get("SQLITE_FILE", "")
 
 # api setup
 app = FastAPI()
@@ -21,8 +26,8 @@ app.add_middleware(
 
 
 # database setup
-sqllite_file = "/Users/ethancloin/PycharmProjects/PlantNursery/plant_nursery.db"
-sqllite_url = f"sqlite:///{sqllite_file}"
+# sqllite_file = "/Users/ethancloin/PycharmProjects/PlantNursery/plant_nursery.db"
+sqllite_url = f"sqlite:///{SQLITE_FILE}"
 connect_args = {"check_same_thread": False}
 engine = create_engine(sqllite_url, echo=True, connect_args=connect_args)
 
