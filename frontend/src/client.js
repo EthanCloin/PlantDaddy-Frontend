@@ -33,7 +33,7 @@ class FastAPIClient {
       species,
       health,
     };
-    return this.apiClient.post(`/plants/`, plantData);
+    return this.apiClient.post(`/plants/new/`, plantData);
   }
 }
 
