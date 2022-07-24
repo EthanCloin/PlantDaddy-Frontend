@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
 from .models import Plant, PlantCreate, PlantRead
 from sqlmodel import create_engine, SQLModel, Session, select
@@ -55,9 +55,9 @@ async def create_new_plant(plant: PlantCreate):
 
 
 @app.get("/nursery/")
-async def get_all_plants() -> list[Plant]:
+async def get_all_plants(offset: int = 0, limit: int = Query(default=10, lte=100)) -> list[Plant]:
     with Session(engine) as session:
-        plants = session.exec(select(Plant)).all()
+        plants = session.exec(select(Plant).offset(offset).limit(limit)).all()
         return plants
     # return """
     # <html>
