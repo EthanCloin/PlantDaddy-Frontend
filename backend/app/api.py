@@ -1,5 +1,5 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from .models import Plant, PlantCreate, PlantRead
 from sqlmodel import create_engine, SQLModel, Session, select
@@ -69,3 +69,13 @@ async def get_all_plants() -> list[Plant]:
     #     </body>
     # </html>
     # """
+
+
+@app.get("/plants/{plant_id}", response_model=PlantRead)
+async def get_plant_by_id(plant_id: int):
+    with Session(engine) as session:
+        plant = session.get(Plant, plant_id)
+        if not plant:
+            raise HTTPException(status_code=404, detail="Plant not found")
+        return plant
+

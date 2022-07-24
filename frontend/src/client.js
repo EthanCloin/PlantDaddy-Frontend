@@ -24,7 +24,7 @@ class FastAPIClient {
     return client;
   }
 
-  getNursury() {
+  getNursery() {
     return this.apiClient.get(`/nursery/`);
   }
   createPlant(name, species, health) {

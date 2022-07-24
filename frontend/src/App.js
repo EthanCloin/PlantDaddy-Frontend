@@ -10,7 +10,7 @@ const App = () => {
     const [plants, setPlants] = useState([])
 
     const getAllPlants = async () => {
-    client.getNursury().then((data) => {
+    client.getNursery().then((data) => {
         console.log(data)
         setPlants(data.data)
     })
