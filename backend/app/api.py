@@ -53,7 +53,7 @@ async def create_new_plant(plant: PlantCreate):
 
 @app.get("/nursery/")
 async def get_all_plants(
-    offset: int = 0, limit: int = Query(default=10, lte=100)
+    offset: int = 0, limit: int = Query(default=20, lte=100)
 ) -> list[Plant]:
     with Session(engine) as session:
         plants = session.exec(select(Plant).offset(offset).limit(limit)).all()
