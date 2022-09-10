@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
-from models import Plant, PlantCreate, PlantRead, Health
+from .models import Plant, PlantCreate, PlantRead, Health
 from sqlmodel import create_engine, SQLModel, Session, select
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
