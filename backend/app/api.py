@@ -1,7 +1,7 @@
 import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
-from .models import Plant, PlantCreate, PlantRead, Health
+from models import Plant, PlantCreate, PlantRead, Health
 from sqlmodel import create_engine, SQLModel, Session, select
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
@@ -30,7 +30,7 @@ engine = create_engine(sqllite_url, echo=True, connect_args=connect_args)
 
 
 def create_db_and_tables():
-    print("creating db and tables")
+    print(f"creating db and tables at {sqllite_url}")
     # looks at my models which are tagged with "table=True"
     # and links them to the tables
     SQLModel.metadata.create_all(engine)
