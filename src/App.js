@@ -4,7 +4,7 @@ import FastAPIClient from "./client";
 import { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import TestImage from "/Users/ethancloin/PycharmProjects/PlantNursery/frontend/src/test_data/plant_eg.jpeg";
+import TestImage from "./test_data/plant_eg.jpeg";
 const client = new FastAPIClient(config);
 
 const App = () => {
