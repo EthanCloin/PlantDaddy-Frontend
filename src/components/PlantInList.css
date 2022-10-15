@@ -1,0 +1,26 @@
+.PlantInList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border: 4px #474056 solid;
+  max-width: 70vw;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  background-color: #e7bbe3;
+  padding-right: 0.5em;
+}
+
+.PlantInList.needs-water {
+  /* justify-content */
+  background-color: #e9d758;
+}
+
+.PlantInList .nickname {
+  margin: 0.5em;
+}
+
+.PlantInList .water-icon {
+  margin-left: auto;
+  font-size: 2em;
+  padding: 0.5em;
+}
