@@ -1,0 +1,17 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header .app-title {
+  max-width: 30vw;
+  margin: 0 auto;
+}
+
+.Header .page-links {
+  display: flex;
+  justify-content: space-around;
+  min-width: 40vw;
+}
