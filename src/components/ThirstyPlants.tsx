@@ -1,4 +1,4 @@
-import PlantList from "./components/PlantList";
+import PlantList from "./PlantList";
 import "./ThirstyPlants.css";
 
 const ThirstyPlants = () => {

@@ -9,7 +9,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import ThirstyPlants from "./ThirstyPlants";
+import ThirstyPlants from "./components/ThirstyPlants";
 
 function App() {
   return (
