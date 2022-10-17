@@ -1,5 +1,5 @@
 import axios from "axios";
-import Plant from "../models/Plant";
+import Plant, { PlantResponse } from "../models/Plant";
 
 const currentUrl = "http://0.0.0.0:8000";
 
@@ -15,7 +15,7 @@ export const createPlant = (plant: Plant) => {
     });
 };
 
-export const getAllPlants = (): Promise<Plant[]> => {
+export const getAllPlants = (): Promise<PlantResponse[]> => {
   const path = `${currentUrl}/plants/`;
   return axios.get(`${currentUrl}/plants/`).then((res) => {
     console.log(path);

@@ -7,6 +7,7 @@ const ThirstyPlants = () => {
 
   const dummyThirstyPlants = [
     {
+      id: 999,
       nickname: "thirsty boi",
       species: "needus waterus",
       needsWater: true,

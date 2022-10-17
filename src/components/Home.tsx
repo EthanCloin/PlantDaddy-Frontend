@@ -14,7 +14,16 @@ const Home = () => {
   const [plants, setPlants] = useState<Plant[]>([]);
 
   useEffect(() => {
-    getAllPlants().then((res) => setPlants(res));
+    getAllPlants().then((res) => {
+      console.log("before: ", res);
+      const plantData = res.map((plantResponse) => {
+        console.log(plantResponse);
+        return plantResponse.plant;
+      });
+      setPlants(plantData);
+      console.log("in Home", plantData);
+      console.log("in Home first", plantData[0]);
+    });
   }, []);
   return (
     <div className="Home">

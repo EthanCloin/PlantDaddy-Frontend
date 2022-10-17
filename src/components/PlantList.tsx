@@ -9,7 +9,7 @@ const PlantList = ({ plants }: Props) => {
   return (
     <div className="PlantList">
       {plants.map((plant) => (
-        <PlantInList plant={plant} />
+        <PlantInList plant={plant} key={plant.id} />
       ))}
     </div>
   );

@@ -6,6 +6,7 @@ interface Props {
 }
 const PlantInList = ({ plant }: Props) => {
   const wateredClass = plant.needsWater ? " needs-water" : "";
+  console.log("in plantinlist: " + plant.nickname);
   return (
     <div className={"PlantInList" + wateredClass}>
       <h1 className="nickname">{plant.nickname}</h1>
